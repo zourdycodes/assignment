@@ -111,6 +111,14 @@ export const GlobalProvider = ({ children }: any): EmotionJSX.Element => {
     }
   }, []);
 
+  /**
+   * @description
+   * This function is responsible for fetching posts
+   * base on userID
+   *
+   * @param {any} async(id:any)
+   * @returns {any}
+   */
   const fetchPosts = useCallback(async (id: any) => {
     try {
       postDispatch({
@@ -150,6 +158,15 @@ export const GlobalProvider = ({ children }: any): EmotionJSX.Element => {
     }
   }, []);
 
+  /**
+   * @description
+   * This function is responsible for getting the single data
+   * due to there is no filtering url path so instead I filtered
+   * the posts in here
+   *
+   * @param {any} async(id:number)
+   * @returns {any}
+   */
   const fetchSinglePost = useCallback(async (id: number) => {
     try {
       postDispatch({
@@ -193,6 +210,14 @@ export const GlobalProvider = ({ children }: any): EmotionJSX.Element => {
     }
   }, []);
 
+  /**
+   * @description
+   * This function is responsible for fetching the comments
+   * list based on given post ID and store it inside the context reducer
+   *
+   * @param {any} async(id?:any
+   * @returns {any}
+   */
   const fetchComments = useCallback(async (id?: any) => {
     try {
       commentDispatch({
@@ -299,6 +324,14 @@ export const GlobalProvider = ({ children }: any): EmotionJSX.Element => {
     }
   }, [addPostState, sendNewPostToServer]);
 
+  /**
+   * @description
+   * this function is responsible for removing post
+   * from the list with maintaining posts data in the reducer context.
+   *
+   * @param {any} id:number
+   * @returns {any}
+   */
   const removePostWithId = (id: number) => {
     postDispatch({
       type: ActionTypesPost.REMOVE_POST_FROM_THE_LIST,
