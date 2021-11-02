@@ -44,17 +44,11 @@ const PostDetailsPage: NextPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query.id, postState.post]);
 
-  console.log({
-    postState,
-    commentState,
-    userState,
-  });
-
   return (
     <Wrapper>
       <PostDetailPageContainer>
         {userState.user.length !== 0 ? (
-          <div>
+          <>
             <UserProfile userData={userState.user[0]} />
 
             <Button
@@ -67,13 +61,12 @@ const PostDetailsPage: NextPage = () => {
             >
               Back To Profile
             </Button>
-          </div>
+          </>
         ) : (
           <LoadingContainer>
             <LoadingSkeleton />
           </LoadingContainer>
         )}
-        {/* <SinglePost post={postState?.post}> */}
 
         {/* POST */}
         {Object.keys(postState?.post).length !== 0 &&
